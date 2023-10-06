@@ -7,8 +7,8 @@
     padding: 20px;
     height: 90px;
     width: auto;
-    background-color: #F2F5FF;
-    color:#4D77FF;
+    background-color: #161D6E;/*F2F5FF*/
+    color:#fff;
 }
 .container{
     display: flex;
@@ -17,18 +17,17 @@
 }
 .links > .ul-flex{
     display: flex;
-    
     list-style: none;
-    
 }
 .title{
     text-transform: uppercase;
-    padding-left: 45px;
+    padding-left: 195px;
     font-size: 23px;
     font-family: serif;
     word-spacing: 0.4rem;
     text-align: center;
     margin-top: -10px;
+    
 }
 .ul-flex > li{
    padding-right: 20px;
@@ -43,7 +42,7 @@
 
 a{
     text-decoration: none;
-    color: #0032D5;
+    color: #fff;/*0032D5*/
     font-size: 17px;
     font-family:oswald;
     font-weight: 600;
@@ -70,7 +69,7 @@ a{
     cursor: pointer;
     background-image: linear-gradient(140deg,#EFFFFD,#8CA7FF); /*#42C2FF*/
     transform: skew(-25deg);
-    transition: ease-in-out;
+    transition: all 300ms;
     border-radius: 2px;
 }
 .nav-link:hover > a{

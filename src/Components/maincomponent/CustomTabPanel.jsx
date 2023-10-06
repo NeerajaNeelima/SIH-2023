@@ -17,12 +17,12 @@ const CustomTabPanel = () => {
   return (
     <Box>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
         <TabList aria-label="Tabs example" onChange={handleChange} textColor="primary">
   <Tab
     label="Visual Representation"
     value="1"
-    sx={{ marginRight: theme.spacing(20) }} // Adjust the spacing as needed
+    sx={{ marginRight: theme.spacing(20) }} 
   />
   <Tab label="L->S & S-> l" value="2" sx={{ marginRight: theme.spacing(20) }} />
   <Tab label="ALl TAT , CT , LT" value="3" sx={{ marginRight: theme.spacing(20) }} />
