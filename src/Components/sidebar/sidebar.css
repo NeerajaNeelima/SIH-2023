@@ -1,10 +1,9 @@
 .side-container{
-    width:17rem;
-    background-color: #F2F5FF;
+    width:21rem;
+    background-color: #0C134F;
     height: 100vh;
-    border-top: 2.5px solid rgb(179, 179, 179);
-    border-right: 2.5px solid rgb(179, 179, 179);
-    border-radius: 5px;
+    /*border-right: 2.5px solid rgb(179, 179, 179);*/
+    /*border-radius: 5px;*/
 }
 
 .sidebar{
@@ -14,10 +13,14 @@
 .icons{
     list-style:  none;
     padding: 2rem;
-    height: 3rem;
+    height: 2rem;
+    margin: 20px 0px 0px 15px;
     width: 17rem;
     text-align: center;
-    color: #0032D5;
+    color:#fff;
+    font-weight: 500;
+    border-radius: 40px;
+    background-color: #1D267D;
 }
 .icons > li{
     margin-top: -0.8rem;
@@ -25,7 +28,7 @@
 
 .icons:hover{
     background-image: linear-gradient(140deg,#EFFFFD,#8CA7FF); /*#42C2FF*/
-    transition: ease-in-out;
+    transition: all 300ms;
     border-radius: 0.3rem;
     cursor: pointer;
     color:#5469EE;

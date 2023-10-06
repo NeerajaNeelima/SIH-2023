@@ -1,7 +1,14 @@
+*{
+    scroll-behavior: smooth;
+}
 .maindiv{
     
     display: flex;
     gap:2rem;
     height: 100%;
     
+}
+.subdiv{
+    display: flex;
+    flex-direction: column;
 }

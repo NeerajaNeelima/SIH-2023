@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.legend{
+    height: 56px;
+    margin-left: -2rem;
+    margin-bottom: 0;
+    background-color: #161D6E;
+    color:#fff;
+    text-align: center;
+}
+.iconflex{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+.icon-content{
+    display: flex;
+    gap:0.3rem;
+}
+.icon-content > p{
+    margin-top: 4.5px;
+}
