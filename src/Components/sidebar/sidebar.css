@@ -1,0 +1,32 @@
+.side-container{
+    width:17rem;
+    background-color: #F2F5FF;
+    height: 100vh;
+    border-top: 2.5px solid rgb(179, 179, 179);
+    border-right: 2.5px solid rgb(179, 179, 179);
+    border-radius: 5px;
+}
+
+.sidebar{
+    margin-top: 9rem;
+}
+
+.icons{
+    list-style:  none;
+    padding: 2rem;
+    height: 3rem;
+    width: 17rem;
+    text-align: center;
+    color: #0032D5;
+}
+.icons > li{
+    margin-top: -0.8rem;
+}
+
+.icons:hover{
+    background-image: linear-gradient(140deg,#EFFFFD,#8CA7FF); /*#42C2FF*/
+    transition: ease-in-out;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    color:#5469EE;
+}
