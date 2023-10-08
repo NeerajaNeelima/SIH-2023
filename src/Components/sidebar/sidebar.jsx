@@ -17,6 +17,12 @@ function Sidebar() {
         <div className='icons'>
             <li>Slag Pot Ladel</li>
         </div>
+        <div className='icons'>
+            <li>Add Ladle No.</li>
+        </div>
+        <div className='icons'>
+            <li>Add Station No.</li>
+        </div>
         </ul>
         </div>
         

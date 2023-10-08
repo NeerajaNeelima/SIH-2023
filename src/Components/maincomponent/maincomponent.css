@@ -1,15 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 .tab{
     color:black;
     position: relative;
-    margin-left: 100px;
-}
-
-.custom-tab{
-    margin-right: 4rem;
+    margin-left: 50px;
 }
 
 
+.location{
+  margin-top: 120px;
+  margin-left: 40px;
+}
+.details{
+    display: flex;
+    margin-top: 20px;
+}
+.form-row{
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
+}
+.form-row .input-data{
+  width: 80%;
+  height: 40px;
+  
+  position: relative;
+}
+
+.input-data input
+{
+  display: block;
+  width: 50%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+}
+.input-data input:focus ~ label, 
+.input-data input:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #3498db;
+}
+
+.input-data label{
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 80%;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 80%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before
+{
+  transform: scale(1);
+}
+.submit-btn{
+  height: 40px;
+  width: 80px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 17px;
+  background-color: #3498db;
+  transition: all 0.4s;
+  position:absolute;
+  margin-left: 600px;
+}
+select{
+  height: 85%;
+  width: 20%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+}
+select > option {
+  white-space: normal;
+  border-bottom: 1px solid #ccc; 
+  cursor: pointer;
+  padding: auto;
+}
+select > option:checked {
+  margin-top: 30px;
+  background-color: #007bff;
+  color: white;
+  
+}
+.output{
+  text-transform: capitalize;
+  margin-left: 20rem;
+  margin-top: 2rem;
+  font-size: 50px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+  padding-left: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/*
+.submit-btn .input-data{
+  overflow: hidden;
+  height: 45px!important;
+  width: 25%!important;
+}
+.submit-btn .input-data {
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  transition: all 0.4s;
+}
+.submit-btn, .input-data:hover{
+  left: 0;
+}
+.submit-btn .input-data input{
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  
+  form .form-row .input-data{
+    margin: 35px 0!important;
+  }
+  .submit-btn .input-data{
+    width: 40%!important;
+  }
+}*/
+/*
+.location{
+  margin-top: 120px;
+  margin-left: 40px;
+}
+.details{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+.querybox{
+    display: flex;
+    gap: 2rem;
+}
+.details > label{
+     font-size: 17px;
+     font-weight: 500;
+}
+.querybox label{
+    position: absolute;
+ 
+  color:grey;/* rgba(255, 255, 255, 0.5);
+  font: 13px Roboto;
+  cursor: text;
+  transition: 0.25s ease;
+}
 .querybox > input{
+    height: 55px;
+    width: 50vh;
+    border:none;
+    outline: none;
+    border-bottom: 2px solid blue;
+    color: #000;
+    caret-color: blue;
+    font-size: 17px;
+    font-family: sans-serif;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-5%);
+    margin-top: -25px;
+}
+.querybox > input::placeholder{
+  font-size: 13px;
+  color:grey;
+  padding-left: 15px;
+}
+.querybox > input:focus{
+    transition: all 0.5s ease-in-out;
+    transform: translateX(3%);
+}
+.querybox:focus-within > input::placeholder {
+    position: absolute;
+    top:-10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    transition: 0.25s ease;
+    color:#000;
+    font-weight: 600;
+  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.btn{
+    height: 40px;
+    width: 100px;
+    background-color: blue;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+  .input-data{
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+  }
+  .input-data input,
+.textarea textarea{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+}
+/*.querybox > input{
     width: 250px;
     height: 45px;
     margin-left: 21rem;
@@ -30,27 +280,4 @@
     color: black;
     font-weight: 400;
 }
-
-.output{
-    text-transform: capitalize;
-    margin-left: 20rem;
-    margin-top: 2rem;
-    font-size: 50px;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    padding-left: 0px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+*/

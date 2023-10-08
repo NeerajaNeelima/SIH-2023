@@ -16,7 +16,7 @@ function Navbar() {
                   <p>visakhapatnam steel plant</p>
                   <p>(A Govt. of India Enterprise)</p>
             </div>
-            <div className='links' >
+            {/*<div className='links' >
                 <ul className='ul-flex'>
                     <li>
                       <div className='nav-link'>
@@ -29,7 +29,7 @@ function Navbar() {
                         </div>
                     </li>
                 </ul>
-            </div>
+  </div>*/}
         </div>
     </nav>
   )

@@ -1,13 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
 import Sidebar from './Components/sidebar/sidebar';
 import CustomTabPanel from './Components/maincomponent/CustomTabPanel';
 import Legend from './Components/Legend/Legend.jsx'
 function App() {
   return (
+    
     <BrowserRouter>
-      <Navbar />
+      <Home/>
+      {/*<Navbar />
       <div className='maindiv'>
         <Sidebar />
         <div className='subdiv'>
@@ -15,8 +18,8 @@ function App() {
           <Legend/>
         </div>
         
-      </div>
-    </BrowserRouter>
+  </div>*/}
+  </BrowserRouter>
   );
 }
 

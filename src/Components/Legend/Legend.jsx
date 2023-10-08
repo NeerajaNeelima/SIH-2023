@@ -6,15 +6,15 @@ const Legend = () => {
     <div className='legend'>
      <div className='iconflex'>
         <div className='icon-content'>
-            <LocationOnIcon style={{ color: 'red',fontSize:'33px' }}/>
+            <LocationOnIcon style={{ color: 'orange',fontSize:'33px' }}/>
             <p>Hotel Ladel</p>
         </div>
         <div className='icon-content'>
-            <LocationOnIcon style={{ color: 'blue',fontSize:'33px' }}/>
+            <LocationOnIcon style={{ color: 'pink',fontSize:'33px' }}/>
             <p>Steel Ladel</p>
         </div>
         <div className='icon-content'>
-            <LocationOnIcon style={{ color: 'grey',fontSize:'33px' }}/>
+            <LocationOnIcon style={{ color: 'brown',fontSize:'33px' }}/>
             <p>Scrap Pot Ladle</p>
         </div>
      </div>

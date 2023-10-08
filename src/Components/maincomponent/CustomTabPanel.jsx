@@ -31,17 +31,31 @@ const CustomTabPanel = () => {
 
 
         </Box>
-        
-        <TabPanel value="1" className='tab'><img src={map} width='1100rem' height='550rem' style={{marginLeft:'-2rem',padding:'0px'}} /></TabPanel>
+        <TabPanel value="1" className='tab'><img src={map} width='1100rem' height='550rem' style={{marginLeft:'-2rem',padding:'0px' }} alt='Steel_Plant_Blue_Print' /></TabPanel>
         <TabPanel value="2"  className='tab'>
-
-          <p>Ladle No. or Station No.</p>
-          <div className='querybox'>
-            <input type='text' placeholder='     Ladle Number or Station Number' /><br/>
-            <button> Search</button>
-          </div> 
-          <p className='output' style={{}}>
-          <b >FURNACE 1</b>
+          <div className='location'>
+          <div class="form-row">
+            
+              <select>
+                <option selected disabled>Select</option>
+                <option value="Ladle-no.">Ladle No.</option>
+                <option value="Station-no.">Station No.</option>
+              </select>
+            
+            <div class="input-data">
+               <input type="text" required/>
+               <div class="underline"></div>
+               <label for="">Enter Ladle or Station No.</label>
+            </div>
+            
+              <button className='submit-btn'>Submit</button>
+            
+          </div>
+            
+             
+           
+          <p className='output'>
+          FURNACE 1
           </p> 
           <table>
             <tr>
@@ -75,6 +89,8 @@ const CustomTabPanel = () => {
               <td>23:15:06 7th October 2023 </td>
             </tr>
           </table>
+          </div>
+          
 
         </TabPanel>
         <TabPanel value="3"  className='tab'>
