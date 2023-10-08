@@ -1,18 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-import Home from './Components/Home/Home.jsx';
+import React from 'react'
 import Navbar from './Components/Navbar/Navbar';
 import Sidebar from './Components/sidebar/sidebar';
 import CustomTabPanel from './Components/maincomponent/CustomTabPanel';
 import Legend from './Components/Legend/Legend.jsx'
-
-function App() {
+const Main_Home = () => {
   return (
-    
-    <BrowserRouter>
-      <Home/>
-      
-      {/*<Navbar />
+    <div>
+       <Navbar />
       <div className='maindiv'>
         <Sidebar />
         <div className='subdiv'>
@@ -20,9 +14,9 @@ function App() {
           <Legend/>
         </div>
         
-  </div>*/}
-  </BrowserRouter>
-  );
+  </div>
+    </div>
+  )
 }
 
-export default App;
+export default Main_Home

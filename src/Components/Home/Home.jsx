@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Home.css'
 import image from '../../assets/vizag_steel_plant.jpg'
+import icons from '../../assets/steel_plant_logo.jpeg'
 import { useTypewriter,Cursor } from "react-simple-typewriter";
 const Home = () => {
     const[text]=useTypewriter({
@@ -24,6 +25,9 @@ const Home = () => {
             </div>
         </div>
         <div className='right'>
+                <div className='heading'>
+                    <img src={icons} alt='icons'/>
+                </div>
         <div className="section">
             <div className="container">
                 <div className=" full-height justify-content-center">
@@ -44,9 +48,9 @@ const Home = () => {
                                                     
                                                 </div>
                                                 <div className="form-group mt-2">
-                                                    <i className="input-icon uil uil-lock-alt">
+                                                    
                                                     <input type="password" name="logpass" class="form-style" placeholder="Your password" id="logpass" autocomplete="off"/>
-                                                    </i>
+                                                    <i className="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <NavLink href="#" className="btn mt-4">Submit</NavLink>
                                                 <p className="mb-0 mt-4 text-center"><NavLink href="#0" class="link">Forgot your password?</NavLink></p>
@@ -66,7 +70,7 @@ const Home = () => {
                                                     <input type="password" name="logpass" className="form-style" placeholder="Your password" id="logpass" autocomplete="off"/>
                                                     <i className="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                <NavLink href="#" className="btn mt-4">Submit</NavLink>
+                                                <NavLink href="" className="btn mt-4">Submit</NavLink>
                                                 
                                                 
                                             </div>
