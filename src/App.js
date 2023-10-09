@@ -10,17 +10,17 @@ function App() {
   return (
     
     <BrowserRouter>
-      <Home/>
-      
-      {/*<Navbar />
+     {/*<Home/>
+      */} 
+      <Navbar />
       <div className='maindiv'>
         <Sidebar />
         <div className='subdiv'>
           <CustomTabPanel />
-          <Legend/>
+          
         </div>
         
-  </div>*/}
+  </div>
   </BrowserRouter>
   );
 }

@@ -7,7 +7,7 @@ const Legend = () => {
      <div className='iconflex'>
         <div className='icon-content'>
             <LocationOnIcon style={{ color: 'orange',fontSize:'33px' }}/>
-            <p>Hotel Ladel</p>
+            <p>Hot Ladel</p>
         </div>
         <div className='icon-content'>
             <LocationOnIcon style={{ color: 'pink',fontSize:'33px' }}/>

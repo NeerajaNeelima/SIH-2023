@@ -11,7 +11,7 @@ function Navbar() {
             <div className="logo">
              <img src={image} alt='Steel-Plant-Logo'/>     
             </div>
-            <div className="title">
+            <div className="navbar_heading">
                   rastriya ispat nigam limited
                   <p>visakhapatnam steel plant</p>
                   <p>(A Govt. of India Enterprise)</p>

@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .tab{
     color:black;
     position: relative;
-    margin-left: 50px;
+    margin-left: 30px;
 }
-
+.tab4{
+  margin-left: -5rem;
+}
 
 .location{
   margin-top: 120px;
@@ -13,16 +20,18 @@
 .details{
     display: flex;
     margin-top: 20px;
+  
+  
 }
 .form-row{
   display: flex;
-  gap: 3rem;
   justify-content: space-around;
+  margin-bottom: 30px;
+  
 }
 .form-row .input-data{
   width: 80%;
   height: 40px;
-  
   position: relative;
 }
 
@@ -86,6 +95,11 @@
   position:absolute;
   margin-left: 600px;
 }
+.custom-timeline-connector {
+  background-color: green; 
+  width: 2px; 
+  height: 100%; 
+}
 select{
   height: 85%;
   width: 20%;
@@ -94,6 +108,7 @@ select{
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
+  margin-left: -50px;
 }
 select > option {
   white-space: normal;
