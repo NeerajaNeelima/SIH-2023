@@ -5,9 +5,21 @@
   box-sizing: border-box;
 }
 .tab{
-    color:black;
+    
     position: relative;
     margin-left: 30px;
+}
+.map{
+  padding: 0;
+ 
+}
+.slag_pot{
+ 
+  z-index: 10;
+ 
+}
+.blue_print{
+ z-index: -3;
 }
 .tab4{
   margin-left: -5rem;
@@ -129,21 +141,10 @@ select > option:checked {
   font-size: 50px;
 }
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 10px;
-  padding-left: 15px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+.history_table{
+  display: flex;
+  justify-content: space-around;
 }
 /*
 .submit-btn .input-data{
