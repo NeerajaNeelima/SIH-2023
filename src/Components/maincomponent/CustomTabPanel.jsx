@@ -2,7 +2,7 @@ import { Box, Tab} from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { createTheme } from '@mui/material';
 
-import SMS2 from '../../assets/SMS2.jpg'
+
 import Legend from '../Legend/Legend.jsx';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -30,6 +30,11 @@ import furnace from '../../assets/furnace.jpg'
 import ccm from '../../assets/ccm.jpg'
 import ladle_car from '../../assets/ladle_car.jpg'
 import arm from '../../assets/arm.jpg'
+import ccm4 from '../../assets/CCM4.png'
+import bof from '../../assets/BOF.jpg'
+import rh from '../../assets/rh.jpg'
+import trim_hf from '../../assets/trim_hf.png'
+import lft from '../../assets/lft.jpg'
 
 function createData(
   name: string,
@@ -137,7 +142,35 @@ const CustomTabPanel = () => {
                
                 </TabPanel>
              <TabPanel value="6" className="tab">
-             <img src={SMS2} alt='SMS1' width={'1000rem'} height={'450px'}/>
+             <img src={ccm4} alt='SMS1'  width={'1070rem'} height={'650px'}/>
+
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'4.9rem'}} className='slag_pot' />
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'12rem'}} className='slag_pot'/>
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'41.6rem'}} className='slag_pot'/>
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'45.6rem'}} className='slag_pot' />
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'49.5rem'}} className='slag_pot'/>
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'3.2rem',left:'18.2rem'}} className='slag_pot'/>
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'8.2rem',left:'27rem'}} className='slag_pot' />
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'8.5rem',left:'37.5rem'}} className='slag_pot'/>
+                  <img src={slag_pot} alt='slag_pot' width={'50px'} height={'30px'} style={{position: 'absolute',top:'8.5rem',left:'53.5rem'}} className='slag_pot'/>
+                  <img src={bof} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'13rem',left:'26.6rem'}} className='slag_pot'/>
+                  <img src={bof} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'13rem',left:'37.2rem'}} className='slag_pot'/>
+                  <img src={bof} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'13rem',left:'53rem'}} className='slag_pot'/>
+                  <img src={ccm} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'37rem',left:'14.4rem'}} className='slag_pot'/>
+                  <img src={ccm} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'37rem',left:'26rem'}} className='slag_pot'/>
+                  <img src={ccm} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'37rem',left:'38rem'}} className='slag_pot'/>
+                  <img src={rh} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'26rem',left:'7rem'}} className='slag_pot'/>
+                  <img src={rh} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'31.5rem',left:'14.5rem'}} className='slag_pot'/>
+                  <img src={trim_hf} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'25.5rem',left:'19.5rem'}} className='slag_pot'/>
+                  <img src={ccm} alt='slag_pot' width={'60px'} height={'40px'} style={{position: 'absolute',top:'37rem',left:'54rem'}} className='slag_pot'/>
+                  <img src={ladle_furnace} alt='slag_pot' width={'64px'} height={'40px'} style={{position: 'absolute',top:'28rem',left:'26.5rem'}} className='slag_pot'/>
+                  <img src={ladle_furnace} alt='slag_pot' width={'64px'} height={'40px'} style={{position: 'absolute',top:'28rem',left:'37rem'}} className='slag_pot'/>
+                  <img src={ladle_furnace} alt='slag_pot' width={'64px'} height={'40px'} style={{position: 'absolute',top:'28rem',left:'53rem'}} className='slag_pot'/>
+                  <img src={tempod_can} alt='slag_pot' width={'70px'} height={'34px'} style={{position: 'absolute',top:'13.6rem',left:'7.5rem'}} className='slag_pot'/>
+                  <img src={tempod_can} alt='slag_pot' width={'70px'} height={'34px'} style={{position: 'absolute',top:'17rem',left:'13rem'}} className='slag_pot'/>
+                  <img src={lft} alt='slag_pot' width={'90px'} height={'54px'} style={{position: 'absolute',top:'20.5rem',left:'26rem'}} className='slag_pot'/>
+                  <img src={lft} alt='slag_pot' width={'90px'} height={'54px'} style={{position: 'absolute',top:'20.5rem',left:'36.5rem'}} className='slag_pot'/>
+                  <img src={lft} alt='slag_pot' width={'90px'} height={'54px'} style={{position: 'absolute',top:'20.5rem',left:'51.5rem'}} className='slag_pot'/>
              </TabPanel>
              <Legend />
             </>
