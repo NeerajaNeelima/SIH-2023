@@ -89,14 +89,15 @@ const CustomTabPanel = () => {
   const [value, setValue] = useState('1');
   const [click,setClick]=useState('0')
   const [dvalue,setDvalue]=useState('5')
-  const [selectedValue, setSelectedValue] = useState(''); 
+  const [selectedValue, setSelectedValue] = useState('Select'); 
   const [inputValue, setInputValue] = useState('');
-
+  const [showTable, setShowTable] = useState(false);
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
   const handleSelect = (event) => {
     setSelectedValue(event.target.value); 
+    
   };
 
   const handleChange = (event:React.SyntheticEvent,newValue:string) => {
@@ -109,6 +110,7 @@ const CustomTabPanel = () => {
   };
   const ButtonClicked =(event)=>{
     if (inputValue.trim() === '') {
+      setShowTable(false)
       alert('Please enter Ladle or Station No.');
     } else {
       setClick('1')
@@ -263,7 +265,7 @@ const CustomTabPanel = () => {
         <button className='submit-btn' onClick={ButtonClicked}>Submit</button>
       </div>
 
-      {selectedValue === 'Ladle-no.' && click === '1' ? (
+      {selectedValue === 'Ladle-no.' && click === '1' && showTable ? (
         <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-4)}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -300,7 +302,7 @@ const CustomTabPanel = () => {
         <p className='output'></p>
       ) : null}
 
-      {selectedValue === 'Station-no.' && click === '1' ? (
+      {selectedValue === 'Station-no.' && click === '1' && showTable? (
         <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-4)}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
