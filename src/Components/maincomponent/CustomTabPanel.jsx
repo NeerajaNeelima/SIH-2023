@@ -2,7 +2,6 @@ import { Box, Tab} from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { createTheme } from '@mui/material';
 
-
 import Legend from '../Legend/Legend.jsx';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -37,29 +36,65 @@ import trim_hf from '../../assets/trim_hf.png'
 import lft from '../../assets/lft.jpg'
 
 function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  LadleNo: string,
+  LadleType: string,
+  TAT: number,
+  CT: number,
+  LT: number,
 ) {
-  return { name, calories, fat, carbs, protein };
+  return { LadleNo, LadleType, TAT, CT, LT };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('H121', 'Hot Ladle', 6.0, 24, 4.0),
+  createData('S135', 'Steel Ladle', 9.0, 37, 4.3),
+  createData('SC144', 'Slag Ladle', 16.0, 24, 6.0),
+  createData('S2228', 'Steel Ladle', 3.7, 67, 4.3),
+  createData('H2324', 'Hot Ladle', 16.0, 49, 3.9),
+];
+function createStationData(
+  Ladle_No: string,
+  Ladle_Type: string,
+  Ladle_Entry_Time:string,
+  Ladel_exit_Time:string,
+) {
+  return { Ladle_No, Ladle_Type, Ladle_Entry_Time, Ladel_exit_Time};
+}
+
+const Stationrows = [
+  createStationData('H121', 'Hot Ladle','12:00:00','3:00:00'),
+  createStationData('S135', 'Steel Ladle','10:00:00','12:00:00'),
+  createStationData('SC144', 'Slag Ladle','10:30:00','12:40:00'),
+  createStationData('S2228', 'Steel Ladle','11:00:00','2:00:00'),
+  createStationData('H2324', 'Hot Ladle','12:00:00','4:00:00'),
+];
+function createLadleData(
+  Station_Id: string,
+  Station_Name: string,
+  Ladle_Entry_Time:string,
+  Ladel_exit_Time:string,
+) {
+  return { Station_Id, Station_Name, Ladle_Entry_Time, Ladel_exit_Time};
+}
+
+const Ladlerows = [
+  createLadleData('22', 'SMS1','12:00:00','3:00:00'),
+  createLadleData('23', 'SMS2','10:00:00','12:00:00'),
+  createLadleData('22', 'SMS1','10:30:00','12:40:00'),
+  createLadleData('23', 'SMS2','11:00:00','2:00:00'),
+  createLadleData('22', 'SMS1','12:00:00','4:00:00'),
 ];
 
 const CustomTabPanel = () => {
   const [value, setValue] = useState('1');
-  
+  const [click,setClick]=useState('0')
   const [dvalue,setDvalue]=useState('5')
   const [selectedValue, setSelectedValue] = useState(''); 
+  const [inputValue, setInputValue] = useState('');
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
   const handleSelect = (event) => {
     setSelectedValue(event.target.value); 
   };
@@ -72,6 +107,14 @@ const CustomTabPanel = () => {
     setDvalue(newValue);
    
   };
+  const ButtonClicked =(event)=>{
+    if (inputValue.trim() === '') {
+      alert('Please enter Ladle or Station No.');
+    } else {
+      setClick('1')
+    }
+       
+  }
   const theme = createTheme({
     palette: {
       
@@ -210,47 +253,78 @@ const CustomTabPanel = () => {
         </select>
 
         <div className="input-data">
-          <input type="text" required />
+          <input type="text" required
+          value={inputValue}
+          onChange={handleInputChange}/>
           <div className="underline"></div>
           <label for="">Enter Ladle or Station No.</label>
         </div>
 
-        <button className='submit-btn'>Submit</button>
+        <button className='submit-btn' onClick={ButtonClicked}>Submit</button>
       </div>
 
-      {selectedValue === 'Ladle-no.' ? (
-        <p className='output'>FURNACE 1</p>
+      {selectedValue === 'Ladle-no.' && click === '1' ? (
+        <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-4)}}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Station ID</TableCell>
+              <TableCell align="right">Station Name</TableCell>
+              <TableCell align="right">Ladle Entry Time</TableCell>
+              <TableCell align="right">Ladle Exit Time</TableCell>
+              
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {Ladlerows.map((row) => (
+              <TableRow
+                key={row.Station_Id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.Station_Id}
+                </TableCell>
+                <TableCell align="right">{row.Station_Name}</TableCell>
+                <TableCell align="right">{row.Ladle_Entry_Time}</TableCell>
+                <TableCell align="right">{row.Ladel_exit_Time}</TableCell>
+                
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+        
       ) : null}
       
       {selectedValue === 'Select' ? (
         <p className='output'></p>
       ) : null}
 
-      {selectedValue === 'Station-no.' ? (
+      {selectedValue === 'Station-no.' && click === '1' ? (
         <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-4)}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>Ladle NO</TableCell>
+              <TableCell align="right">Ladle Type</TableCell>
+              <TableCell align="right">Ladle Entry Time</TableCell>
+              <TableCell align="right">Ladle Exit Time</TableCell>
+              
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {Stationrows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.Ladle_No}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.Ladle_No}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">{row.Ladle_Type}</TableCell>
+                <TableCell align="right">{row.Ladle_Entry_Time}</TableCell>
+                <TableCell align="right">{row.Ladel_exit_Time}</TableCell>
+                
               </TableRow>
             ))}
           </TableBody>
@@ -258,222 +332,41 @@ const CustomTabPanel = () => {
       </TableContainer>
         
     ) : null}
-    {/*<table style={{ marginLeft: '0px' }}>
-        <tr>
-              <th>Ladle Type</th>
-              <th>Ladle Number</th>
-              <th>position</th>
-              <th>Time stamp</th>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-      </table>*/}
+    
   </div>
-          {/*<div className='location'>
-          <div class="form-row">
-            
-              <select>
-                <option selected disabled>Select</option>
-                <option value="Ladle-no.">Ladle No.</option>
-                <option value="Station-no.">Station No.</option>
-              </select>
-            
-            <div class="input-data">
-               <input type="text" required/>
-               <div class="underline"></div>
-               <label for="">Enter Ladle or Station No.</label>
-            </div>
-            
-              <button className='submit-btn'>Submit</button>
-            
-          </div>
-            
-             
-           
-          <p className='output'>
-          FURNACE 1
-          </p> 
-          <table>
-            <tr>
-              <th>Ladle Type</th>
-              <th>Ladle Number</th>
-              <th>position</th>
-              <th>Time stamp</th>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-            </tr>
-          </table>
-          </div>*/}
           
-
         </TabPanel>
         <TabPanel value="3"  className='tab'>
         <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-3)}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>Ladle NO</TableCell>
+              <TableCell align="right">Ladle Type</TableCell>
+              <TableCell align="right">TAT</TableCell>
+              <TableCell align="right">CT</TableCell>
+              <TableCell align="right">LT</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
-              </TableRow>
+              key={row.LadleNo}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.LadleNo}
+              </TableCell>
+              <TableCell align="right">{row.LadleType}</TableCell>
+              <TableCell align="right">{row.TAT}</TableCell>
+              <TableCell align="right">{row.CT}</TableCell>
+              <TableCell align="right">{row.LT}</TableCell>
+            </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-       {/* <table style={{marginLeft:'0px'}}>
-            <tr>
-              <th>Ladle Type</th>
-              <th>Ladle Number</th>
-              <th>position</th>
-              <th>Time stamp</th>
-              <th>TAT</th>
-              <th>CT</th>
-              <th>LT</th>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Hot metal ladle</td>
-              <td>H5</td>
-              <td>FURNACE 1 </td>
-              <td>23:15:06 7th October 2023 </td>
-              <td>150</td>
-              <td>4</td>
-              <td>8</td>
-            </tr>
-            </table>*/}
-            
+       
         </TabPanel>
         <TabPanel value="4"  className='tab tab4'>
         <div className="form-row">
@@ -533,36 +426,9 @@ const CustomTabPanel = () => {
     </Timeline>
     </div>
     <div className='h_table'>
-    <TableContainer component={Paper} sx={{marginLeft:theme.spacing(-3)}}>
-        <Table sx={{ maxWidth: 550 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-             
-              
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <p>TAT : 6.0</p>
+    <p>CT :22</p>
+    <p>LT : 6 </p>
     </div>
     
     </div>
